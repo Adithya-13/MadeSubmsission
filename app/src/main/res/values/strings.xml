@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="dummyTitle">The Crimes Of Grindelwald</string>
+    <string name="dummyDate">23 august 2020</string>
+    <string name="dummyUserScore">75%</string>
+    <string name="loremIpsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur diam eget volutpat porta. Sed dictum id mi in facilisis. Suspendisse vehicula convallis efficitur. Nunc imperdiet velit ut est hendrerit, vel cursus libero pellentesque. Sed varius vel orci in finibus. Etiam eu enim justo. Duis tempor ipsum in sem aliquam, id vestibulum odio imperdiet. Curabitur condimentum sem lacus, nec mattis diam pharetra nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In ac erat at lorem mattis varius. Etiam eu risus metus.</string>
+    <string name="movies">Movies</string>
+    <string name="tvshows">Tv Shows</string>
+    <string name="popularity_d">Popularity : %s</string>
+    <string name="baseUrlImage">http://image.tmdb.org/t/p/w500%s</string>
+    <string name="popularity_detail">Popularity : %s, Vote Count : %s, Vote Average : %s</string>
+    <string name="shareTitle">Bagikan aplikasi ini sekarang.</string>
+    <string name="shareBody">Saya sedang melihat info film di Movie App, Download Aplikasi ini Sekarang!!</string>
+    <string name="overview">Overview</string>
+    <string name="popularity">Popularity</string>
+    <string name="share">Share</string>
+    <string name="postertopbar">posterTopBar</string>
+    <string name="foregroundpostertopbar">foregroundPosterTopBar</string>
+    <string name="backbutton">BackButton</string>
+    <string name="subPoster">subPoster</string>
+    <string name="icon">icon</string>
+    <string name="poster">poster</string>
+    <string name="favorite">favorite</string>
+    <string name="dummyLanguage">en</string>
+    <string name="message_undo">Batalkan menghapus item sebelumnya?</string>
+    <string name="message_ok">OK</string>
+    <string name="notfound">notFound</string>
+    <string name="title_favorite">Favorite</string>
+</resources>
