@@ -1,6 +1,5 @@
 package com.extcode.project.core.domain.usecase
 
-import android.util.Log
 import com.extcode.project.core.data.Resource
 import com.extcode.project.core.domain.model.Movie
 import com.extcode.project.core.domain.repository.IMovieAppRepository

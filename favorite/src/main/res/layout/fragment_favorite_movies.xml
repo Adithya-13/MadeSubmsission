@@ -67,7 +67,7 @@
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_colorPressed="@color/primaryColor"
             fab:fab_colorRipple="@color/primaryColor"
-            android:src="@drawable/ic_star"
+            android:src="@drawable/ic_vote"
             fab:fab_label="Vote"
             fab:fab_size="mini" />
 

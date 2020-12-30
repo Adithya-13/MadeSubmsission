@@ -64,7 +64,7 @@
             android:id="@+id/vote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_star"
+            android:src="@drawable/ic_vote"
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_colorPressed="@color/primaryColor"
             fab:fab_colorRipple="@color/primaryColor"

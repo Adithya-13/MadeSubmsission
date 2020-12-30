@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.extcode.project.favorite.databinding.FragmentFavoriteBinding
 import com.extcode.project.favorite.di.favoriteModule
-import com.extcode.project.madesubmission1.databinding.FragmentFavoriteBinding
 import org.koin.core.context.loadKoinModules
 
 class FavoriteFragment : Fragment() {
