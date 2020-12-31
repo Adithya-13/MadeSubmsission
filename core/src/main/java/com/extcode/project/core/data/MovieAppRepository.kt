@@ -1,6 +1,5 @@
 package com.extcode.project.core.data
 
-import android.util.Log
 import com.extcode.project.core.data.source.local.LocalDataSource
 import com.extcode.project.core.data.source.remote.RemoteDataSource
 import com.extcode.project.core.data.source.remote.network.ApiResponse
@@ -23,7 +22,6 @@ class MovieAppRepository(
         object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovies(sort).map {
-                    Log.d("localDataa", it.toString())
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
@@ -38,7 +36,6 @@ class MovieAppRepository(
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
-                Log.d("movieList", movieList.toString())
                 localDataSource.insertMovies(movieList)
             }
         }.asFlow()

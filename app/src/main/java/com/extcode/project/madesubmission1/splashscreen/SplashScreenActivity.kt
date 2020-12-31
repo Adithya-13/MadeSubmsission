@@ -6,7 +6,11 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.extcode.project.madesubmission1.R
 import com.extcode.project.madesubmission1.home.HomeActivity
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 
+@ExperimentalCoroutinesApi
+@FlowPreview
 class SplashScreenActivity : AppCompatActivity() {
 
     private val splashScreenTime: Long = 2000

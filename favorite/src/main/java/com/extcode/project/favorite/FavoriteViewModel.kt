@@ -14,7 +14,7 @@ class FavoriteViewModel(private val movieAppUseCase: MovieAppUseCase) : ViewMode
     fun getFavoriteTvShows(sort: String): LiveData<List<Movie>> =
         movieAppUseCase.getFavoriteTvShows(sort).asLiveData()
 
-    fun setFavorite(Movie: Movie, newState : Boolean) {
+    fun setFavorite(Movie: Movie, newState: Boolean) {
         movieAppUseCase.setMovieFavorite(Movie, newState)
     }
 }

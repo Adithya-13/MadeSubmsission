@@ -112,7 +112,6 @@ class TvShowsFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                binding.progressHorizontal.visibility = View.VISIBLE
                 newText?.let {
                     searchViewModel.setSearchQuery(it)
                 }
@@ -124,7 +123,6 @@ class TvShowsFragment : Fragment() {
 
     private fun setSearchList() {
         searchViewModel.tvShowResult.observe(viewLifecycleOwner, { movies ->
-            binding.progressHorizontal.visibility = View.GONE
             tvShowsAdapter.setData(movies)
             tvShowsAdapter.notifyDataSetChanged()
         })

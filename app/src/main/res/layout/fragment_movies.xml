@@ -8,17 +8,6 @@
     android:background="@color/secondaryColor"
     tools:context=".movies.MoviesFragment">
 
-    <ProgressBar
-        android:id="@+id/progressHorizontal"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:minHeight="5dp"
-        android:padding="0dp"
-        android:visibility="gone"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovies"
         android:layout_width="match_parent"

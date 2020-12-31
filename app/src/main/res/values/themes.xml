@@ -24,15 +24,4 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
-        <!-- Gets rid of the search icon -->
-        <item name="searchIcon">@drawable/ic_search</item>
-        <!-- Gets rid of the "underline" in the text -->
-        <item name="queryBackground">@android:color/white</item>
-        <!-- Gets rid of the search icon when the SearchView is expanded -->
-        <item name="searchHintIcon">@null</item>
-        <!-- The hint text that appears when the user has not typed anything -->
-        <item name="queryHint">@string/search</item>
-    </style>
-
 </resources>

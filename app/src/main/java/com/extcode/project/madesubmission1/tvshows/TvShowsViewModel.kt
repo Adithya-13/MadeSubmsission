@@ -8,8 +8,6 @@ import com.extcode.project.core.domain.model.Movie
 import com.extcode.project.core.domain.usecase.MovieAppUseCase
 
 class TvShowsViewModel(private val movieAppUseCase: MovieAppUseCase) : ViewModel() {
-
     fun getTvShows(sort: String): LiveData<Resource<List<Movie>>> =
         movieAppUseCase.getAllTvShows(sort).asLiveData()
-
 }

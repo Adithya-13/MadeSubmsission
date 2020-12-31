@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:background="@color/secondaryColor">
-<!--    tools:context=".ui.favorite.movies.FavoriteMoviesFragment">-->
+    <!--    tools:context=".ui.favorite.movies.FavoriteMoviesFragment">-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_favorite_movies"
@@ -53,10 +53,10 @@
             android:id="@+id/popularity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_star"
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_colorPressed="@color/primaryColor"
             fab:fab_colorRipple="@color/primaryColor"
-            android:src="@drawable/ic_star"
             fab:fab_label="Popularity"
             fab:fab_size="mini" />
 
@@ -64,10 +64,10 @@
             android:id="@+id/vote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_vote"
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_colorPressed="@color/primaryColor"
             fab:fab_colorRipple="@color/primaryColor"
-            android:src="@drawable/ic_vote"
             fab:fab_label="Vote"
             fab:fab_size="mini" />
 
@@ -75,10 +75,10 @@
             android:id="@+id/newest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_date"
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_colorPressed="@color/primaryColor"
             fab:fab_colorRipple="@color/primaryColor"
-            android:src="@drawable/ic_date"
             fab:fab_label="Newest"
             fab:fab_size="mini" />
 
@@ -86,10 +86,10 @@
             android:id="@+id/random"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_default"
             fab:fab_colorNormal="@color/colorAccent"
             fab:fab_colorPressed="@color/primaryColor"
             fab:fab_colorRipple="@color/primaryColor"
-            android:src="@drawable/ic_default"
             fab:fab_label="Random"
             fab:fab_size="mini" />
 
@@ -109,10 +109,10 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/not_found"
+        android:contentDescription="@string/notfound"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/notfound" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

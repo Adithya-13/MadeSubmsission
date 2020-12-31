@@ -27,7 +27,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 @ExperimentalCoroutinesApi
 @FlowPreview
 class MoviesFragment : Fragment() {
-
     private var _fragmentMoviesBinding: FragmentMoviesBinding? = null
     private val binding get() = _fragmentMoviesBinding!!
     override fun onCreateView(
@@ -114,7 +113,6 @@ class MoviesFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                binding.progressHorizontal.visibility = View.VISIBLE
                 newText?.let {
                     searchViewModel.setSearchQuery(it)
                 }
@@ -125,7 +123,6 @@ class MoviesFragment : Fragment() {
 
     private fun setSearchList() {
         searchViewModel.movieResult.observe(viewLifecycleOwner, { movies ->
-            binding.progressHorizontal.visibility = View.GONE
             moviesAdapter.setData(movies)
             moviesAdapter.notifyDataSetChanged()
         })

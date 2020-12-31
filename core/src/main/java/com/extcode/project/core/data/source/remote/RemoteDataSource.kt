@@ -1,6 +1,5 @@
 package com.extcode.project.core.data.source.remote
 
-import android.util.Log
 import com.extcode.project.core.data.source.remote.network.ApiResponse
 import com.extcode.project.core.data.source.remote.network.ApiService
 import com.extcode.project.core.data.source.remote.response.MovieResponse
@@ -26,7 +25,6 @@ class RemoteDataSource(private val apiService: ApiService) {
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -43,7 +41,6 @@ class RemoteDataSource(private val apiService: ApiService) {
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
             }
         }.flowOn(Dispatchers.IO)
     }

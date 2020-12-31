@@ -9,9 +9,11 @@ import com.extcode.project.madesubmission1.R
 import com.extcode.project.madesubmission1.databinding.ActivityHomeBinding
 import com.extcode.project.madesubmission1.movies.MoviesFragment
 import com.extcode.project.madesubmission1.tvshows.TvShowsFragment
-import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
-import com.google.android.play.core.splitinstall.SplitInstallRequest
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
@@ -27,34 +29,13 @@ class HomeActivity : AppCompatActivity() {
             when (position) {
                 0 -> navigationChange(MoviesFragment())
                 1 -> navigationChange(TvShowsFragment())
-                2 -> installFavoriteModule()
+                2 -> moveToFavoriteFragment()
             }
         }
     }
 
     private val className: String
         get() = "com.extcode.project.favorite.FavoriteFragment"
-
-    private fun installFavoriteModule() {
-        val splitInstallManager = SplitInstallManagerFactory.create(this)
-        val moduleChat = "favorite"
-        if (splitInstallManager.installedModules.contains(moduleChat)) {
-            moveToFavoriteFragment()
-            Toast.makeText(this, "Open module", Toast.LENGTH_SHORT).show()
-        } else {
-            val request = SplitInstallRequest.newBuilder()
-                .addModule(moduleChat)
-                .build()
-            splitInstallManager.startInstall(request)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Success installing module", Toast.LENGTH_SHORT).show()
-                    moveToFavoriteFragment()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Error installing module", Toast.LENGTH_SHORT).show()
-                }
-        }
-    }
 
     private fun moveToFavoriteFragment() {
         val fragment = instantiateFragment(className)
@@ -65,7 +46,6 @@ class HomeActivity : AppCompatActivity() {
 
     private fun instantiateFragment(className: String): Fragment? {
         return try {
-            Toast.makeText(this, "Open Module", Toast.LENGTH_SHORT).show()
             Class.forName(className).newInstance() as Fragment
         } catch (e: Exception) {
             Toast.makeText(this, "Module not found", Toast.LENGTH_SHORT).show()
