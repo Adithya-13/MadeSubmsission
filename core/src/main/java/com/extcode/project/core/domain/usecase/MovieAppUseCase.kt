@@ -14,5 +14,9 @@ interface MovieAppUseCase {
 
     fun getFavoriteTvShows(sort: String): Flow<List<Movie>>
 
+    fun getSearchMovies(search: String): Flow<List<Movie>>
+
+    fun getSearchTvShows(search: String): Flow<List<Movie>>
+
     fun setMovieFavorite(movie: Movie, state: Boolean)
 }

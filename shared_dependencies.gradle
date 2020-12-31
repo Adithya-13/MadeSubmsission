@@ -16,6 +16,9 @@ dependencies {
     implementation "com.gauravk.bubblenavigation:bubblenavigation:$bubble_navigation_version"
     implementation "com.github.clans:fab:$custom_fab_version"
     implementation "com.makeramen:roundedimageview:$riv_version"
+    implementation "com.miguelcatalan:materialsearchview:$material_search_view_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     //koin
     implementation "org.koin:koin-core:$koin_version"
@@ -24,4 +27,5 @@ dependencies {
 
     //Play Core
     implementation "com.google.android.play:core:$play_core_version"
+
 }

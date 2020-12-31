@@ -65,6 +65,18 @@ class MovieAppRepository(
             }
         }.asFlow()
 
+    override fun getSearchMovies(search: String): Flow<List<Movie>> {
+        return localDataSource.getMovieSearch(search).map {
+            DataMapper.mapEntitiesToDomain(it)
+        }
+    }
+
+    override fun getSearchTvShows(search: String): Flow<List<Movie>> {
+        return localDataSource.getTvShowSearch(search).map {
+            DataMapper.mapEntitiesToDomain(it)
+        }
+    }
+
     override fun getFavoriteMovies(sort: String): Flow<List<Movie>> {
         return localDataSource.getAllFavoriteMovies(sort).map {
             DataMapper.mapEntitiesToDomain(it)

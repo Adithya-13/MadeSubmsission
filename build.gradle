@@ -18,6 +18,7 @@ buildscript {
     ext.bubble_navigation_version = "1.0.7"
     ext.custom_fab_version = "1.6.4"
     ext.riv_version = "2.3.0"
+    ext.material_search_view_version = "1.4.0"
 
     ext.room_version = "2.2.6"
 
