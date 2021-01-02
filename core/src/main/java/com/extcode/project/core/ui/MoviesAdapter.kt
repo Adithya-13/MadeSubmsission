@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View.GONE
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -13,6 +14,7 @@ import com.bumptech.glide.request.target.Target
 import com.extcode.project.core.R
 import com.extcode.project.core.databinding.ItemCardListBinding
 import com.extcode.project.core.domain.model.Movie
+import com.extcode.project.core.utils.DiffUtils
 import java.util.*
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
@@ -22,9 +24,11 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
 
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return
+        val diffUtilCallback = DiffUtils(listData, newListData)
+        val diffResult = DiffUtil.calculateDiff(diffUtilCallback)
         listData.clear()
         listData.addAll(newListData)
-        notifyDataSetChanged()
+        diffResult.dispatchUpdatesTo(this)
     }
 
     fun getSwipedData(swipedPosition: Int): Movie = listData[swipedPosition]
@@ -80,14 +84,6 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
                         }
                     })
                     .into(poster)
-
-//                itemView.setOnClickListener {
-//                    val intent = Intent(itemView.context, DetailActivity::class.java).apply {
-//                        putExtra(DetailActivity.EXTRA_TYPE, DetailType.MOVIE.ordinal)
-//                        putExtra(DetailActivity.EXTRA_ID, movie.id)
-//                    }
-//                    itemView.context.startActivity(intent)
-//                }
             }
         }
 
