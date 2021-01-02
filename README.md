@@ -20,6 +20,7 @@
 - [Installation](#Installation)
 - [Demo](#Demo)
 - [Features](#Features)
+- [Tech Stack](#Tech Stack)
 - [Dependencies](#Dependencies)
 
 ## Introduction
@@ -62,17 +63,22 @@ you can get API_KEY from [TheMovieDb](https://developers.themoviedb.org/3)
 |![](assets/search_movies.gif?raw=true)|![](assets/search_tv_shows.gif?raw=true)|![](assets/favorite_movies.gif?raw=true)|![](assets/favorite_tv_shows.gif?raw=true)|
 
 ## Features
+- Get All the Movies and Tv Shows
+- Search the Movies and Tv Shows
+- Favorited Movies and Tv Shows
+- Sort the Movies and Tv Shows by: Popularity, Vote, Release Date, and Random
+- Share the Movies and Tv Shows to other Application
+
+## Tech Stack
 - MVVM (Model-View-ViewModel) Architecture Pattern
 - Modularization (core module)
 - Dynamic Feature (favorite module)
 - Clean Architecture (data, domain, presentation)
 - Dependency Injection with Koin
+- Coroutines Flow
 - ViewBinding
-- Get All the Movies and Tv Shows
-- Search the Movies and Tv Shows using Coroutines Flow
-- Favorited Movies and Tv Shows using Room Persistence
-- Sort the Movies and Tv Shows by: Popularity, Vote, Release Date, and Random using RawQuery
-- Share the Movies and Tv Shows to other Application
+- Room Persistence
+- RawQuery
 
 ## Dependencies
 - [Bubble Navigation](https://github.com/gauravk95/bubble-navigation)
