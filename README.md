@@ -20,3 +20,6 @@
 |All Movies|All Tv Shows|Detail Movies|Detail Tv Shows|
 |--|--|--|--|
 |![](assets/Movies.gif?raw=true)|![](assets/tv_shows.gif?raw=true)|![](assets/detail_movies.gif?raw=true)|![](assets/detail_tv_shows.gif?raw=true)|
+|Search Movies|Search Tv Shows|Favorite Movies|Favorite Tv Shows|
+|--|--|--|--|
+|![](assets/search_movies.gif?raw=true)|![](assets/search_tv_shows.gif?raw=true)|![](assets/favorite_movies.gif?raw=true)|![](assets/favorite_tv_shows.gif?raw=true)|
