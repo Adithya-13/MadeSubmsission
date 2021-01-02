@@ -28,7 +28,7 @@
 
 Clone or Download and Open it into Android Studio
 ```
-    https://github.com/Adithya-13/MadeSubmsission1.git
+    https://github.com/Adithya-13/MadeSubmsission.git
 ```  
 
 Change the API_KEY [here](https://github.com/Adithya-13/MadeSubmsission1/blob/master/core/src/main/java/com/extcode/project/core/data/source/remote/RemoteDataSource.kt)
