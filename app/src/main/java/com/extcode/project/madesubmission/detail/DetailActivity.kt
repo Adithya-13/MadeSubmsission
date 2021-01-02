@@ -1,4 +1,4 @@
-package com.extcode.project.madesubmission1.detail
+package com.extcode.project.madesubmission.detail
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,8 @@ import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.extcode.project.core.domain.model.Movie
-import com.extcode.project.madesubmission1.R
-import com.extcode.project.madesubmission1.databinding.ActivityDetailBinding
+import com.extcode.project.madesubmission.R
+import com.extcode.project.madesubmission.databinding.ActivityDetailBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {

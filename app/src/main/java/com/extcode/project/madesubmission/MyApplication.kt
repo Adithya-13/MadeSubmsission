@@ -1,11 +1,11 @@
-package com.extcode.project.madesubmission1
+package com.extcode.project.madesubmission
 
 import android.app.Application
 import com.extcode.project.core.di.databaseModule
 import com.extcode.project.core.di.networkModule
 import com.extcode.project.core.di.repositoryModule
-import com.extcode.project.madesubmission1.di.useCaseModule
-import com.extcode.project.madesubmission1.di.viewModelModule
+import com.extcode.project.madesubmission.di.useCaseModule
+import com.extcode.project.madesubmission.di.viewModelModule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.ext.koin.androidContext

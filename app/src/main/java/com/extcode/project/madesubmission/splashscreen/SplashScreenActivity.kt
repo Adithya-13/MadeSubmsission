@@ -1,11 +1,11 @@
-package com.extcode.project.madesubmission1.splashscreen
+package com.extcode.project.madesubmission.splashscreen
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.extcode.project.madesubmission1.R
-import com.extcode.project.madesubmission1.home.HomeActivity
+import com.extcode.project.madesubmission.R
+import com.extcode.project.madesubmission.home.HomeActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 

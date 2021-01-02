@@ -1,4 +1,4 @@
-package com.extcode.project.madesubmission1.detail
+package com.extcode.project.madesubmission.detail
 
 import androidx.lifecycle.ViewModel
 import com.extcode.project.core.domain.model.Movie

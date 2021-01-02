@@ -1,4 +1,4 @@
-package com.extcode.project.madesubmission1.home
+package com.extcode.project.madesubmission.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

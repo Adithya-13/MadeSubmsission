@@ -16,7 +16,7 @@ import com.extcode.project.core.utils.SortUtils
 import com.extcode.project.favorite.FavoriteViewModel
 import com.extcode.project.favorite.R
 import com.extcode.project.favorite.databinding.FragmentFavoriteMoviesBinding
-import com.extcode.project.madesubmission1.detail.DetailActivity
+import com.extcode.project.madesubmission.detail.DetailActivity
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
 
