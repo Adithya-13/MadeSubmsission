@@ -8,7 +8,7 @@
   <a href="http://developer.android.com/index.html"><img alt="Platform" src="https://img.shields.io/badge/platform-Android-green.svg"></a>
   <a href="http://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/kotlin-1.4.20-blue.svg"></a>
   <a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="Gradle" src="https://img.shields.io/badge/gradle-4.1.1-yellow.svg"></a>
-  <a href="https://github.com/Adithya-13/MadeSubmsission1/"><img alt="Star" src="https://img.shields.io/github/stars/Adithya-13/MadeSubmsission1"></a>
+  <a href="https://github.com/Adithya-13/MadeSubmsission/"><img alt="Star" src="https://img.shields.io/github/stars/Adithya-13/MadeSubmsission"></a>
 </p>
 
 <p align="center">
@@ -32,7 +32,7 @@ Clone or Download and Open it into Android Studio
     https://github.com/Adithya-13/MadeSubmsission.git
 ```  
 
-Change the API_KEY [here](https://github.com/Adithya-13/MadeSubmsission1/blob/master/core/src/main/java/com/extcode/project/core/data/source/remote/RemoteDataSource.kt)
+Change the API_KEY [here](https://github.com/Adithya-13/MadeSubmsission/blob/master/core/src/main/java/com/extcode/project/core/data/source/remote/RemoteDataSource.kt)
 
 ```
 class RemoteDataSource(private val apiService: ApiService) {
