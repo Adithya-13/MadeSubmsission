@@ -1,8 +1,8 @@
 <h1 align="center">
-  Submission Dicoding MADE : Movie App
+  Submission 1 Dicoding MADE : Movie App
 </h1>
 <p align="center">
-  Submission MADE (Menjadi Android Developer Expert) in Dicoding Course.
+  Submission 1 MADE (Menjadi Android Developer Expert) in Dicoding Course.
 </p>
 <p align="center">
   <a href="http://developer.android.com/index.html"><img alt="Platform" src="https://img.shields.io/badge/platform-Android-green.svg"></a>
