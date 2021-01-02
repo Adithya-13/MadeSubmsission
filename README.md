@@ -16,12 +16,12 @@
 </p>
 
 ## Table of Contents
-- [Introduction](#Introduction)
-- [Installation](#Installation)
-- [Demo](#Demo)
-- [Features](#Features)
-- [Tech Stack](#Tech Stack)
-- [Dependencies](#Dependencies)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Demo](#demo)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Dependencies](#dependencies)
 
 ## Introduction
 
