@@ -15,7 +15,16 @@
   <img src="assets/thumbnail.png"/>
 </p>
 
-## Get Started
+## Table of Contents
+- [Introduction](#Introduction)
+- [Installation](#Installation)
+- [Demo](#Demo)
+- [Features](#Features)
+- [Dependencies](#Dependencies)
+
+## Introduction
+
+## Installation
 
 Clone or Download and Open it into Android Studio
 ```
@@ -42,8 +51,6 @@ class RemoteDataSource(private val apiService: ApiService) {
 
 you can get API_KEY from [TheMovieDb](https://developers.themoviedb.org/3)
 
-Change
-
 ## Demo
 
 |All Movies|All Tv Shows|Detail Movies|Detail Tv Shows|
@@ -53,7 +60,7 @@ Change
 |--|--|--|--|
 |![](assets/search_movies.gif?raw=true)|![](assets/search_tv_shows.gif?raw=true)|![](assets/favorite_movies.gif?raw=true)|![](assets/favorite_tv_shows.gif?raw=true)|
 
-## Feature
+## Features
 - MVVM (Model-View-ViewModel) Architecture Pattern
 - Modularization (core module)
 - Dynamic Feature (favorite module)
