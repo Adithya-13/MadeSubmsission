@@ -1,4 +1,4 @@
-package com.extcode.project.madesubmission1
+package com.extcode.project.madesubmission
 
 import org.junit.Test
 

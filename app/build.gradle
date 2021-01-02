@@ -11,7 +11,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.extcode.project.madesubmission1"
+        applicationId "com.extcode.project.madesubmission"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

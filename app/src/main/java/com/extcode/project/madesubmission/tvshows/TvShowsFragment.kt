@@ -1,4 +1,4 @@
-package com.extcode.project.madesubmission1.tvshows
+package com.extcode.project.madesubmission.tvshows
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,11 +13,11 @@ import com.extcode.project.core.data.Resource
 import com.extcode.project.core.domain.model.Movie
 import com.extcode.project.core.ui.MoviesAdapter
 import com.extcode.project.core.utils.SortUtils
-import com.extcode.project.madesubmission1.R
-import com.extcode.project.madesubmission1.databinding.FragmentTvShowsBinding
-import com.extcode.project.madesubmission1.detail.DetailActivity
-import com.extcode.project.madesubmission1.home.HomeActivity
-import com.extcode.project.madesubmission1.home.SearchViewModel
+import com.extcode.project.madesubmission.R
+import com.extcode.project.madesubmission.databinding.FragmentTvShowsBinding
+import com.extcode.project.madesubmission.detail.DetailActivity
+import com.extcode.project.madesubmission.home.HomeActivity
+import com.extcode.project.madesubmission.home.SearchViewModel
 import com.miguelcatalan.materialsearchview.MaterialSearchView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

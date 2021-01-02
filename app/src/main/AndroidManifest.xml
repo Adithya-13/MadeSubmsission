@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.extcode.project.madesubmission1">
+    package="com.extcode.project.madesubmission">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.extcode.project.madesubmission.MyApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_movie_app"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_movie_app_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MadeSubmission1"
+        android:theme="@style/Theme.MadeSubmission"
         android:usesCleartextTraffic="true">
-        <activity android:name=".detail.DetailActivity" />
-        <activity android:name=".home.HomeActivity" />
+        <activity android:name="com.extcode.project.madesubmission.detail.DetailActivity" />
+        <activity android:name="com.extcode.project.madesubmission.home.HomeActivity" />
         <activity
-            android:name=".splashscreen.SplashScreenActivity"
+            android:name="com.extcode.project.madesubmission.splashscreen.SplashScreenActivity"
             android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MadeSubmission1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MadeSubmission" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/secondaryColor</item>
@@ -15,7 +15,7 @@
         <item name="fontFamily">@font/montserrat_bold</item>
     </style>
 
-    <style name="SplashScreen" parent="Theme.MadeSubmission1">
+    <style name="SplashScreen" parent="Theme.MadeSubmission">
         <item name="android:windowBackground">@color/secondaryColor</item>
     </style>
 

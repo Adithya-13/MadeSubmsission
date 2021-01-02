@@ -1,14 +1,14 @@
-package com.extcode.project.madesubmission1.home
+package com.extcode.project.madesubmission.home
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.extcode.project.madesubmission1.R
-import com.extcode.project.madesubmission1.databinding.ActivityHomeBinding
-import com.extcode.project.madesubmission1.movies.MoviesFragment
-import com.extcode.project.madesubmission1.tvshows.TvShowsFragment
+import com.extcode.project.madesubmission.R
+import com.extcode.project.madesubmission.databinding.ActivityHomeBinding
+import com.extcode.project.madesubmission.movies.MoviesFragment
+import com.extcode.project.madesubmission.tvshows.TvShowsFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 

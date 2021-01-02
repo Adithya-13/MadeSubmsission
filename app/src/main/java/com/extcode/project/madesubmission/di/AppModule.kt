@@ -1,11 +1,11 @@
-package com.extcode.project.madesubmission1.di
+package com.extcode.project.madesubmission.di
 
 import com.extcode.project.core.domain.usecase.MovieAppInteractor
 import com.extcode.project.core.domain.usecase.MovieAppUseCase
-import com.extcode.project.madesubmission1.detail.DetailViewModel
-import com.extcode.project.madesubmission1.home.SearchViewModel
-import com.extcode.project.madesubmission1.movies.MoviesViewModel
-import com.extcode.project.madesubmission1.tvshows.TvShowsViewModel
+import com.extcode.project.madesubmission.detail.DetailViewModel
+import com.extcode.project.madesubmission.home.SearchViewModel
+import com.extcode.project.madesubmission.movies.MoviesViewModel
+import com.extcode.project.madesubmission.tvshows.TvShowsViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.viewmodel.dsl.viewModel
