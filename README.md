@@ -57,7 +57,6 @@ you can get API_KEY from [TheMovieDb](https://developers.themoviedb.org/3)
 |--|--|--|--|
 |![](assets/Movies.gif?raw=true)|![](assets/tv_shows.gif?raw=true)|![](assets/detail_movies.gif?raw=true)|![](assets/detail_tv_shows.gif?raw=true)|
 |Search Movies|Search Tv Shows|Favorite Movies|Favorite Tv Shows|
-|--|--|--|--|
 |![](assets/search_movies.gif?raw=true)|![](assets/search_tv_shows.gif?raw=true)|![](assets/favorite_movies.gif?raw=true)|![](assets/favorite_tv_shows.gif?raw=true)|
 
 ## Features
