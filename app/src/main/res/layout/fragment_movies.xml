@@ -24,14 +24,14 @@
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
         fab:menu_colorNormal="@color/colorAccent"
-        fab:menu_colorPressed="@color/primaryColor"
-        fab:menu_colorRipple="@color/primaryColor"
+        fab:menu_colorPressed="@color/colorAccentPressed"
+        fab:menu_colorRipple="@color/colorAccentPressed"
         fab:menu_fab_label="Sort Movies By"
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/ic_sort"
         fab:menu_labels_colorNormal="@color/colorAccent"
-        fab:menu_labels_colorPressed="@color/primaryColor"
-        fab:menu_labels_colorRipple="@color/primaryColor"
+        fab:menu_labels_colorPressed="@color/colorAccentPressed"
+        fab:menu_labels_colorRipple="@color/colorAccentPressed"
         fab:menu_labels_cornerRadius="10dp"
         fab:menu_labels_ellipsize="none"
         fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
@@ -55,8 +55,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_star"
             fab:fab_colorNormal="@color/colorAccent"
-            fab:fab_colorPressed="@color/primaryColor"
-            fab:fab_colorRipple="@color/primaryColor"
+            fab:fab_colorPressed="@color/colorAccentPressed"
+            fab:fab_colorRipple="@color/colorAccentPressed"
             fab:fab_label="Popularity"
             fab:fab_size="mini" />
 
@@ -66,8 +66,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_vote"
             fab:fab_colorNormal="@color/colorAccent"
-            fab:fab_colorPressed="@color/primaryColor"
-            fab:fab_colorRipple="@color/primaryColor"
+            fab:fab_colorPressed="@color/colorAccentPressed"
+            fab:fab_colorRipple="@color/colorAccentPressed"
             fab:fab_label="Vote"
             fab:fab_size="mini" />
 
@@ -77,8 +77,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_date"
             fab:fab_colorNormal="@color/colorAccent"
-            fab:fab_colorPressed="@color/primaryColor"
-            fab:fab_colorRipple="@color/primaryColor"
+            fab:fab_colorPressed="@color/colorAccentPressed"
+            fab:fab_colorRipple="@color/colorAccentPressed"
             fab:fab_label="Newest"
             fab:fab_size="mini" />
 
@@ -88,8 +88,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_default"
             fab:fab_colorNormal="@color/colorAccent"
-            fab:fab_colorPressed="@color/primaryColor"
-            fab:fab_colorRipple="@color/primaryColor"
+            fab:fab_colorPressed="@color/colorAccentPressed"
+            fab:fab_colorRipple="@color/colorAccentPressed"
             fab:fab_label="Random"
             fab:fab_size="mini" />
 
@@ -104,15 +104,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/notFound"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@drawable/not_found"
-        android:contentDescription="@string/notfound"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/not_found"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        android:scaleType="centerCrop"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/no_data" />
+
+    <TextView
+        android:id="@+id/not_found_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_data"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/not_found"
+        app:layout_constraintStart_toStartOf="@+id/not_found"
+        app:layout_constraintTop_toBottomOf="@+id/not_found" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

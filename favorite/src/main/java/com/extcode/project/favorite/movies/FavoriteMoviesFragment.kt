@@ -36,6 +36,7 @@ class FavoriteMoviesFragment : Fragment() {
 
     private lateinit var moviesAdapter: MoviesAdapter
     private val viewModel: FavoriteViewModel by viewModel()
+    private var sort = SortUtils.RANDOM
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,7 +47,8 @@ class FavoriteMoviesFragment : Fragment() {
 
         binding.progressBar.visibility = View.VISIBLE
         binding.notFound.visibility = View.GONE
-        setList(SortUtils.RANDOM)
+        binding.notFoundText.visibility = View.GONE
+        setList(sort)
 
         with(binding.rvFavoriteMovies) {
             layoutManager = LinearLayoutManager(context)
@@ -60,10 +62,26 @@ class FavoriteMoviesFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.random.setOnClickListener { setList(SortUtils.RANDOM) }
-        binding.newest.setOnClickListener { setList(SortUtils.NEWEST) }
-        binding.popularity.setOnClickListener { setList(SortUtils.POPULARITY) }
-        binding.vote.setOnClickListener { setList(SortUtils.VOTE) }
+        binding.random.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.RANDOM
+            setList(sort)
+        }
+        binding.newest.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.NEWEST
+            setList(sort)
+        }
+        binding.popularity.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.POPULARITY
+            setList(sort)
+        }
+        binding.vote.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.VOTE
+            setList(sort)
+        }
     }
 
     private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
@@ -104,15 +122,16 @@ class FavoriteMoviesFragment : Fragment() {
     }
 
     private val moviesObserver = Observer<List<Movie>> { movies ->
-        if (movies.isNotEmpty()) {
-            binding.progressBar.visibility = View.GONE
-            binding.notFound.visibility = View.GONE
-        } else {
+        if (movies.isNullOrEmpty()){
             binding.progressBar.visibility = View.GONE
             binding.notFound.visibility = View.VISIBLE
+            binding.notFoundText.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.notFound.visibility = View.GONE
+            binding.notFoundText.visibility = View.GONE
         }
         moviesAdapter.setData(movies)
-        moviesAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

@@ -27,8 +27,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
 @ExperimentalCoroutinesApi
 @FlowPreview
 class MoviesFragment : Fragment() {
+
     private var _fragmentMoviesBinding: FragmentMoviesBinding? = null
     private val binding get() = _fragmentMoviesBinding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,17 +43,17 @@ class MoviesFragment : Fragment() {
         return binding.root
     }
 
-
     private val viewModel: MoviesViewModel by viewModel()
     private lateinit var moviesAdapter: MoviesAdapter
     private val searchViewModel: SearchViewModel by viewModel()
     private lateinit var searchView: MaterialSearchView
+    private var sort = SortUtils.RANDOM
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         moviesAdapter = MoviesAdapter()
-        setList(SortUtils.RANDOM)
+        setList(sort)
         observeSearchQuery()
         setSearchList()
 
@@ -67,10 +69,26 @@ class MoviesFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.random.setOnClickListener { setList(SortUtils.RANDOM) }
-        binding.newest.setOnClickListener { setList(SortUtils.NEWEST) }
-        binding.popularity.setOnClickListener { setList(SortUtils.POPULARITY) }
-        binding.vote.setOnClickListener { setList(SortUtils.VOTE) }
+        binding.random.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.RANDOM
+            setList(sort)
+        }
+        binding.newest.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.NEWEST
+            setList(sort)
+        }
+        binding.popularity.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.POPULARITY
+            setList(sort)
+        }
+        binding.vote.setOnClickListener {
+            binding.menu.close(true)
+            sort = SortUtils.VOTE
+            setList(sort)
+        }
     }
 
 
@@ -90,16 +108,18 @@ class MoviesFragment : Fragment() {
                 is Resource.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                     binding.notFound.visibility = View.GONE
+                    binding.notFoundText.visibility = View.GONE
                 }
                 is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
                     binding.notFound.visibility = View.GONE
+                    binding.notFoundText.visibility = View.GONE
                     moviesAdapter.setData(movies.data)
-                    moviesAdapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
                     binding.progressBar.visibility = View.GONE
                     binding.notFound.visibility = View.VISIBLE
+                    binding.notFoundText.visibility = View.VISIBLE
                     Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -123,8 +143,30 @@ class MoviesFragment : Fragment() {
 
     private fun setSearchList() {
         searchViewModel.movieResult.observe(viewLifecycleOwner, { movies ->
+            if (movies.isNullOrEmpty()){
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.VISIBLE
+                binding.notFoundText.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+            }
             moviesAdapter.setData(movies)
-            moviesAdapter.notifyDataSetChanged()
+        })
+        searchView.setOnSearchViewListener(object : MaterialSearchView.SearchViewListener{
+            override fun onSearchViewShown() {
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+            }
+
+            override fun onSearchViewClosed() {
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+                setList(sort)
+            }
         })
     }
 

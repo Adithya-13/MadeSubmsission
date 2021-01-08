@@ -3,9 +3,9 @@ dependencies {
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
-    testImplementation "junit:junit:$junit_version"
+    testImplementation "junit:junit:4.13.1"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
     implementation "androidx.multidex:multidex:$multidex_version"
 
     implementation "androidx.cardview:cardview:$cardview_version"
@@ -17,6 +17,7 @@ dependencies {
     implementation "com.github.clans:fab:$custom_fab_version"
     implementation "com.makeramen:roundedimageview:$riv_version"
     implementation "com.miguelcatalan:materialsearchview:$material_search_view_version"
+    implementation "com.airbnb.android:lottie:$lottie_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
@@ -26,6 +27,6 @@ dependencies {
     implementation "org.koin:koin-android-viewmodel:$koin_version"
 
     //Play Core
-    implementation "com.google.android.play:core:$play_core_version"
+    implementation "com.google.android.play:core:1.9.0"
 
 }
