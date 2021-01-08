@@ -30,7 +30,7 @@
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/ic_sort"
         fab:menu_labels_colorNormal="@color/colorAccent"
-        fab:menu_labels_colorPressed="@color/primaryColor"
+        fab:menu_labels_colorPressed="@color/colorAccentPressed"
         fab:menu_labels_colorRipple="@color/primaryColor"
         fab:menu_labels_cornerRadius="10dp"
         fab:menu_labels_ellipsize="none"
