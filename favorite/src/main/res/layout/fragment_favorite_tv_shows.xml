@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/secondaryColor">
-    <!--    tools:context=".ui.favorite.tvshows.FavoriteTvShowsFragment">-->
+    android:background="@color/secondaryColor"
+    tools:context=".tvshows.FavoriteTvShowsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_favorite_tv_shows"
