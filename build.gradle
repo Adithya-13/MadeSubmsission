@@ -19,6 +19,7 @@ buildscript {
     ext.custom_fab_version = "1.6.4"
     ext.riv_version = "2.3.0"
     ext.material_search_view_version = "1.4.0"
+    ext.lottie_version = "3.6.0"
 
     ext.room_version = "2.2.6"
 

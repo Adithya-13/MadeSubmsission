@@ -68,20 +68,20 @@ class MoviesFragment : Fragment() {
         }
 
         binding.random.setOnClickListener {
-            setList(SortUtils.RANDOM)
             binding.menu.close(true)
+            setList(SortUtils.RANDOM)
         }
         binding.newest.setOnClickListener {
-            setList(SortUtils.NEWEST)
             binding.menu.close(true)
+            setList(SortUtils.NEWEST)
         }
         binding.popularity.setOnClickListener {
-            setList(SortUtils.POPULARITY)
             binding.menu.close(true)
+            setList(SortUtils.POPULARITY)
         }
         binding.vote.setOnClickListener {
-            setList(SortUtils.VOTE)
             binding.menu.close(true)
+            setList(SortUtils.VOTE)
         }
     }
 
@@ -102,16 +102,19 @@ class MoviesFragment : Fragment() {
                 is Resource.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                     binding.notFound.visibility = View.GONE
+                    binding.notFoundText.visibility = View.GONE
                 }
                 is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
                     binding.notFound.visibility = View.GONE
+                    binding.notFoundText.visibility = View.GONE
                     moviesAdapter.setData(movies.data)
                     moviesAdapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
                     binding.progressBar.visibility = View.GONE
                     binding.notFound.visibility = View.VISIBLE
+                    binding.notFoundText.visibility = View.VISIBLE
                     Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                 }
             }

@@ -68,20 +68,20 @@ class TvShowsFragment : Fragment() {
         }
 
         binding.random.setOnClickListener {
-            setList(SortUtils.RANDOM)
             binding.menu.close(true)
+            setList(SortUtils.RANDOM)
         }
         binding.newest.setOnClickListener {
-            setList(SortUtils.NEWEST)
             binding.menu.close(true)
+            setList(SortUtils.NEWEST)
         }
         binding.popularity.setOnClickListener {
-            setList(SortUtils.POPULARITY)
             binding.menu.close(true)
+            setList(SortUtils.POPULARITY)
         }
         binding.vote.setOnClickListener {
-            setList(SortUtils.VOTE)
             binding.menu.close(true)
+            setList(SortUtils.VOTE)
         }
     }
 

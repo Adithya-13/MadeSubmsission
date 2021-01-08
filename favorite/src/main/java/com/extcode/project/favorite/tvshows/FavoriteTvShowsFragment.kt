@@ -46,6 +46,7 @@ class FavoriteTvShowsFragment : Fragment() {
 
         binding.progressBar.visibility = View.VISIBLE
         binding.notFound.visibility = View.GONE
+        binding.notFoundText.visibility = View.GONE
         setList(SortUtils.RANDOM)
 
         with(binding.rvFavoriteTvShows) {
@@ -61,20 +62,20 @@ class FavoriteTvShowsFragment : Fragment() {
         }
 
         binding.random.setOnClickListener {
-            setList(SortUtils.RANDOM)
             binding.menu.close(true)
+            setList(SortUtils.RANDOM)
         }
         binding.newest.setOnClickListener {
-            setList(SortUtils.NEWEST)
             binding.menu.close(true)
+            setList(SortUtils.NEWEST)
         }
         binding.popularity.setOnClickListener {
-            setList(SortUtils.POPULARITY)
             binding.menu.close(true)
+            setList(SortUtils.POPULARITY)
         }
         binding.vote.setOnClickListener {
-            setList(SortUtils.VOTE)
             binding.menu.close(true)
+            setList(SortUtils.VOTE)
         }
     }
 
@@ -119,11 +120,13 @@ class FavoriteTvShowsFragment : Fragment() {
         if (tvShows.isNotEmpty()) {
             binding.progressBar.visibility = View.GONE
             binding.notFound.visibility = View.GONE
+            binding.notFoundText.visibility = View.GONE
             tvShowsAdapter.setData(tvShows)
             tvShowsAdapter.notifyDataSetChanged()
         } else {
             binding.progressBar.visibility = View.GONE
             binding.notFound.visibility = View.VISIBLE
+            binding.notFoundText.visibility = View.VISIBLE
         }
     }
 

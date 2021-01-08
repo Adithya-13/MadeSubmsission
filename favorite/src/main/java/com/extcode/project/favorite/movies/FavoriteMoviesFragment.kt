@@ -46,6 +46,7 @@ class FavoriteMoviesFragment : Fragment() {
 
         binding.progressBar.visibility = View.VISIBLE
         binding.notFound.visibility = View.GONE
+        binding.notFoundText.visibility = View.GONE
         setList(SortUtils.RANDOM)
 
         with(binding.rvFavoriteMovies) {
@@ -61,20 +62,20 @@ class FavoriteMoviesFragment : Fragment() {
         }
 
         binding.random.setOnClickListener {
-            setList(SortUtils.RANDOM)
             binding.menu.close(true)
+            setList(SortUtils.RANDOM)
         }
         binding.newest.setOnClickListener {
-            setList(SortUtils.NEWEST)
             binding.menu.close(true)
+            setList(SortUtils.NEWEST)
         }
         binding.popularity.setOnClickListener {
-            setList(SortUtils.POPULARITY)
             binding.menu.close(true)
+            setList(SortUtils.POPULARITY)
         }
         binding.vote.setOnClickListener {
-            setList(SortUtils.VOTE)
             binding.menu.close(true)
+            setList(SortUtils.VOTE)
         }
     }
 
@@ -119,9 +120,11 @@ class FavoriteMoviesFragment : Fragment() {
         if (movies.isNotEmpty()) {
             binding.progressBar.visibility = View.GONE
             binding.notFound.visibility = View.GONE
+            binding.notFoundText.visibility = View.GONE
         } else {
             binding.progressBar.visibility = View.GONE
             binding.notFound.visibility = View.VISIBLE
+            binding.notFoundText.visibility = View.VISIBLE
         }
         moviesAdapter.setData(movies)
         moviesAdapter.notifyDataSetChanged()
