@@ -41,7 +41,6 @@ class MoviesFragment : Fragment() {
         return binding.root
     }
 
-
     private val viewModel: MoviesViewModel by viewModel()
     private lateinit var moviesAdapter: MoviesAdapter
     private val searchViewModel: SearchViewModel by viewModel()
@@ -109,7 +108,6 @@ class MoviesFragment : Fragment() {
                     binding.notFound.visibility = View.GONE
                     binding.notFoundText.visibility = View.GONE
                     moviesAdapter.setData(movies.data)
-                    moviesAdapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
                     binding.progressBar.visibility = View.GONE
@@ -138,8 +136,10 @@ class MoviesFragment : Fragment() {
 
     private fun setSearchList() {
         searchViewModel.movieResult.observe(viewLifecycleOwner, { movies ->
+            if (movies.isNullOrEmpty()){
+
+            }
             moviesAdapter.setData(movies)
-            moviesAdapter.notifyDataSetChanged()
         })
     }
 

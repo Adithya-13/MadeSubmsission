@@ -106,7 +106,6 @@ class TvShowsFragment : Fragment() {
                     binding.progressBar.visibility = View.GONE
                     binding.notFound.visibility = View.GONE
                     tvShowsAdapter.setData(tvShow.data)
-                    tvShowsAdapter.notifyDataSetChanged()
                 }
                 is Resource.Error -> {
                     binding.progressBar.visibility = View.GONE
@@ -136,7 +135,6 @@ class TvShowsFragment : Fragment() {
     private fun setSearchList() {
         searchViewModel.tvShowResult.observe(viewLifecycleOwner, { movies ->
             tvShowsAdapter.setData(movies)
-            tvShowsAdapter.notifyDataSetChanged()
         })
     }
 

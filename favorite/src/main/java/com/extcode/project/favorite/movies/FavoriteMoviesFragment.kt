@@ -127,7 +127,6 @@ class FavoriteMoviesFragment : Fragment() {
             binding.notFoundText.visibility = View.VISIBLE
         }
         moviesAdapter.setData(movies)
-        moviesAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

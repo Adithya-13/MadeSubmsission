@@ -122,7 +122,6 @@ class FavoriteTvShowsFragment : Fragment() {
             binding.notFound.visibility = View.GONE
             binding.notFoundText.visibility = View.GONE
             tvShowsAdapter.setData(tvShows)
-            tvShowsAdapter.notifyDataSetChanged()
         } else {
             binding.progressBar.visibility = View.GONE
             binding.notFound.visibility = View.VISIBLE
