@@ -36,6 +36,7 @@ class FavoriteTvShowsFragment : Fragment() {
 
     private lateinit var tvShowsAdapter: MoviesAdapter
     private val viewModel: FavoriteViewModel by viewModel()
+    private var sort = SortUtils.RANDOM
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,7 +48,7 @@ class FavoriteTvShowsFragment : Fragment() {
         binding.progressBar.visibility = View.VISIBLE
         binding.notFound.visibility = View.GONE
         binding.notFoundText.visibility = View.GONE
-        setList(SortUtils.RANDOM)
+        setList(sort)
 
         with(binding.rvFavoriteTvShows) {
             layoutManager = LinearLayoutManager(context)
@@ -63,19 +64,23 @@ class FavoriteTvShowsFragment : Fragment() {
 
         binding.random.setOnClickListener {
             binding.menu.close(true)
-            setList(SortUtils.RANDOM)
+            sort = SortUtils.RANDOM
+            setList(sort)
         }
         binding.newest.setOnClickListener {
             binding.menu.close(true)
-            setList(SortUtils.NEWEST)
+            sort = SortUtils.NEWEST
+            setList(sort)
         }
         binding.popularity.setOnClickListener {
             binding.menu.close(true)
-            setList(SortUtils.POPULARITY)
+            sort = SortUtils.POPULARITY
+            setList(sort)
         }
         binding.vote.setOnClickListener {
             binding.menu.close(true)
-            setList(SortUtils.VOTE)
+            sort = SortUtils.VOTE
+            setList(sort)
         }
     }
 
@@ -117,16 +122,16 @@ class FavoriteTvShowsFragment : Fragment() {
     }
 
     private val tvShowsObserver = Observer<List<Movie>> { tvShows ->
-        if (tvShows.isNotEmpty()) {
-            binding.progressBar.visibility = View.GONE
-            binding.notFound.visibility = View.GONE
-            binding.notFoundText.visibility = View.GONE
-            tvShowsAdapter.setData(tvShows)
-        } else {
+        if (tvShows.isNullOrEmpty()){
             binding.progressBar.visibility = View.GONE
             binding.notFound.visibility = View.VISIBLE
             binding.notFoundText.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.notFound.visibility = View.GONE
+            binding.notFoundText.visibility = View.GONE
         }
+        tvShowsAdapter.setData(tvShows)
     }
 
     override fun onDestroyView() {
