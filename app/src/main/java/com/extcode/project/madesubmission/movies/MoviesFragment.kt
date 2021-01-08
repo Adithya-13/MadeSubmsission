@@ -67,10 +67,22 @@ class MoviesFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.random.setOnClickListener { setList(SortUtils.RANDOM) }
-        binding.newest.setOnClickListener { setList(SortUtils.NEWEST) }
-        binding.popularity.setOnClickListener { setList(SortUtils.POPULARITY) }
-        binding.vote.setOnClickListener { setList(SortUtils.VOTE) }
+        binding.random.setOnClickListener {
+            setList(SortUtils.RANDOM)
+            binding.menu.close(true)
+        }
+        binding.newest.setOnClickListener {
+            setList(SortUtils.NEWEST)
+            binding.menu.close(true)
+        }
+        binding.popularity.setOnClickListener {
+            setList(SortUtils.POPULARITY)
+            binding.menu.close(true)
+        }
+        binding.vote.setOnClickListener {
+            setList(SortUtils.VOTE)
+            binding.menu.close(true)
+        }
     }
 
 
