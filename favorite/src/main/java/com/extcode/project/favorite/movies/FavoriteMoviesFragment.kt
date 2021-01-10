@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.extcode.project.core.domain.model.Movie
@@ -17,13 +16,16 @@ import com.extcode.project.favorite.FavoriteViewModel
 import com.extcode.project.favorite.R
 import com.extcode.project.favorite.databinding.FragmentFavoriteMoviesBinding
 import com.extcode.project.madesubmission.detail.DetailActivity
+import com.extcode.project.madesubmission.utils.DataState
+import com.extcode.project.utils.ItemSwipeHelper
+import com.extcode.project.utils.OnItemSwiped
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class FavoriteMoviesFragment : Fragment() {
+class FavoriteMoviesFragment : Fragment(), View.OnClickListener {
 
-    private var _fragmentFavoriteMoviesBinding: FragmentFavoriteMoviesBinding? = null
     private val binding get() = _fragmentFavoriteMoviesBinding!!
+    private var _fragmentFavoriteMoviesBinding: FragmentFavoriteMoviesBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,15 +47,13 @@ class FavoriteMoviesFragment : Fragment() {
 
         moviesAdapter = MoviesAdapter()
 
-        binding.progressBar.visibility = View.VISIBLE
-        binding.notFound.visibility = View.GONE
-        binding.notFoundText.visibility = View.GONE
+        setDataState(DataState.LOADING)
         setList(sort)
 
         with(binding.rvFavoriteMovies) {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
-            this.adapter = moviesAdapter
+            adapter = moviesAdapter
         }
 
         moviesAdapter.onItemClick = { selectedData ->
@@ -61,46 +61,35 @@ class FavoriteMoviesFragment : Fragment() {
             intent.putExtra(DetailActivity.EXTRA_MOVIE, selectedData)
             startActivity(intent)
         }
+    }
 
-        binding.random.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.RANDOM
-            setList(sort)
-        }
-        binding.newest.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.NEWEST
-            setList(sort)
-        }
-        binding.popularity.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.POPULARITY
-            setList(sort)
-        }
-        binding.vote.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.VOTE
-            setList(sort)
+    override fun onClick(view: View?) {
+        when (view) {
+            binding.random -> {
+                binding.menu.close(true)
+                sort = SortUtils.RANDOM
+                setList(sort)
+            }
+            binding.newest -> {
+                binding.menu.close(true)
+                sort = SortUtils.NEWEST
+                setList(sort)
+            }
+            binding.popularity -> {
+                binding.menu.close(true)
+                sort = SortUtils.POPULARITY
+                setList(sort)
+            }
+            binding.vote -> {
+                binding.menu.close(true)
+                sort = SortUtils.VOTE
+                setList(sort)
+            }
         }
     }
 
-    private val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.Callback() {
-        override fun getMovementFlags(
-            recyclerView: RecyclerView,
-            viewHolder: RecyclerView.ViewHolder
-        ): Int {
-            return makeMovementFlags(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
-        }
-
-        override fun onMove(
-            recyclerView: RecyclerView,
-            viewHolder: RecyclerView.ViewHolder,
-            target: RecyclerView.ViewHolder
-        ): Boolean {
-            return true
-        }
-
-        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+    private val itemTouchHelper = ItemSwipeHelper(object : OnItemSwiped {
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder) {
             if (view != null) {
                 val swipedPosition = viewHolder.adapterPosition
                 val movie = moviesAdapter.getSwipedData(swipedPosition)
@@ -118,24 +107,41 @@ class FavoriteMoviesFragment : Fragment() {
     })
 
     private fun setList(sort: String) {
-        viewModel.getFavoriteMovies(sort).observe(this, moviesObserver)
+        viewModel.getFavoriteMovies(sort).observe(viewLifecycleOwner, moviesObserver)
     }
 
     private val moviesObserver = Observer<List<Movie>> { movies ->
-        if (movies.isNullOrEmpty()){
-            binding.progressBar.visibility = View.GONE
-            binding.notFound.visibility = View.VISIBLE
-            binding.notFoundText.visibility = View.VISIBLE
+        if (movies.isNullOrEmpty()) {
+            setDataState(DataState.ERROR)
         } else {
-            binding.progressBar.visibility = View.GONE
-            binding.notFound.visibility = View.GONE
-            binding.notFoundText.visibility = View.GONE
+            setDataState(DataState.SUCCESS)
         }
         moviesAdapter.setData(movies)
     }
 
+    private fun setDataState(state: DataState) {
+        when (state) {
+            DataState.ERROR -> {
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.VISIBLE
+                binding.notFoundText.visibility = View.VISIBLE
+            }
+            DataState.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE
+                binding.notFound.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+            }
+            DataState.SUCCESS -> {
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.rvFavoriteMovies.adapter = null
         _fragmentFavoriteMoviesBinding = null
     }
 }

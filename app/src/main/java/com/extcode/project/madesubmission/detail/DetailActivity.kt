@@ -69,14 +69,14 @@ class DetailActivity : AppCompatActivity() {
         if (state) {
             binding.favoriteButton.setImageDrawable(
                 ContextCompat.getDrawable(
-                    this,
+                    this.applicationContext,
                     R.drawable.ic_favorite
                 )
             )
         } else {
             binding.favoriteButton.setImageDrawable(
                 ContextCompat.getDrawable(
-                    this,
+                    this.applicationContext,
                     R.drawable.ic_favorite_border
                 )
             )

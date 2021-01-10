@@ -18,6 +18,7 @@ import com.extcode.project.madesubmission.databinding.FragmentTvShowsBinding
 import com.extcode.project.madesubmission.detail.DetailActivity
 import com.extcode.project.madesubmission.home.HomeActivity
 import com.extcode.project.madesubmission.home.SearchViewModel
+import com.extcode.project.madesubmission.utils.DataState
 import com.miguelcatalan.materialsearchview.MaterialSearchView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -25,7 +26,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class TvShowsFragment : Fragment() {
+class TvShowsFragment : Fragment(), View.OnClickListener {
 
     private var fragmentTvShowsBinding: FragmentTvShowsBinding? = null
     private val binding get() = fragmentTvShowsBinding!!
@@ -67,57 +68,53 @@ class TvShowsFragment : Fragment() {
             intent.putExtra(DetailActivity.EXTRA_MOVIE, selectedData)
             startActivity(intent)
         }
+    }
 
-        binding.random.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.RANDOM
-            setList(sort)
-        }
-        binding.newest.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.NEWEST
-            setList(sort)
-        }
-        binding.popularity.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.POPULARITY
-            setList(sort)
-        }
-        binding.vote.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.VOTE
-            setList(sort)
+    override fun onClick(view: View?) {
+        when (view) {
+            binding.random -> {
+                binding.menu.close(true)
+                sort = SortUtils.RANDOM
+                setList(sort)
+            }
+            binding.newest -> {
+                binding.menu.close(true)
+                sort = SortUtils.NEWEST
+                setList(sort)
+            }
+            binding.popularity -> {
+                binding.menu.close(true)
+                sort = SortUtils.POPULARITY
+                setList(sort)
+            }
+            binding.vote -> {
+                binding.menu.close(true)
+                sort = SortUtils.VOTE
+                setList(sort)
+            }
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_menu, menu)
-        val item = menu.findItem(R.id.action_search)
-        searchView.setMenuItem(item)
+        val menuItem = menu.findItem(R.id.action_search)
+        searchView.setMenuItem(menuItem)
     }
 
     private fun setList(sort: String) {
-        viewModel.getTvShows(sort).observe(this, tvShowsObserver)
+        viewModel.getTvShows(sort).observe(viewLifecycleOwner, tvShowsObserver)
     }
 
     private val tvShowsObserver = Observer<Resource<List<Movie>>> { tvShow ->
         if (tvShow != null) {
             when (tvShow) {
-                is Resource.Loading -> {
-                    binding.progressBar.visibility = View.VISIBLE
-                    binding.notFound.visibility = View.GONE
-                    binding.notFoundText.visibility = View.GONE
-                }
+                is Resource.Loading -> setDataState(DataState.LOADING)
                 is Resource.Success -> {
-                    binding.progressBar.visibility = View.GONE
-                    binding.notFound.visibility = View.GONE
-                    binding.notFoundText.visibility = View.GONE
+                    setDataState(DataState.SUCCESS)
                     tvShowsAdapter.setData(tvShow.data)
                 }
                 is Resource.Error -> {
-                    binding.progressBar.visibility = View.GONE
-                    binding.notFound.visibility = View.VISIBLE
-                    binding.notFoundText.visibility = View.VISIBLE
+                    setDataState(DataState.ERROR)
                     Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -131,9 +128,7 @@ class TvShowsFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let {
-                    searchViewModel.setSearchQuery(it)
-                }
+                newText?.let { searchViewModel.setSearchQuery(it) }
                 return true
             }
 
@@ -143,35 +138,49 @@ class TvShowsFragment : Fragment() {
     private fun setSearchList() {
         searchViewModel.tvShowResult.observe(viewLifecycleOwner, { tvShows ->
             if (tvShows.isNullOrEmpty()) {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.VISIBLE
-                binding.notFoundText.visibility = View.VISIBLE
+                setDataState(DataState.ERROR)
             } else {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                setDataState(DataState.SUCCESS)
             }
             tvShowsAdapter.setData(tvShows)
         })
-        searchView.setOnSearchViewListener(object : MaterialSearchView.SearchViewListener{
+        searchView.setOnSearchViewListener(object : MaterialSearchView.SearchViewListener {
             override fun onSearchViewShown() {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                setDataState(DataState.SUCCESS)
             }
 
             override fun onSearchViewClosed() {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                setDataState(DataState.SUCCESS)
                 setList(sort)
             }
         })
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        fragmentTvShowsBinding = null
+    private fun setDataState(state: DataState) {
+        when (state) {
+            DataState.ERROR -> {
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.VISIBLE
+                binding.notFoundText.visibility = View.VISIBLE
+            }
+            DataState.LOADING -> {
+                binding.progressBar.visibility = View.VISIBLE
+                binding.notFound.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+            }
+            DataState.SUCCESS -> {
+                binding.progressBar.visibility = View.GONE
+                binding.notFound.visibility = View.GONE
+                binding.notFoundText.visibility = View.GONE
+            }
+        }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        searchView.setOnQueryTextListener(null)
+        searchView.setOnSearchViewListener(null)
+        binding.rvTvShows.adapter = null
+        fragmentTvShowsBinding = null
+    }
 }
