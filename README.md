@@ -9,7 +9,6 @@
   <a href="http://kotlinlang.org"><img alt="Kotlin" src="https://img.shields.io/badge/kotlin-1.4.20-blue.svg"></a>
   <a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="Gradle" src="https://img.shields.io/badge/gradle-4.1.1-yellow.svg"></a>
   <a href="https://github.com/Adithya-13/MadeSubmsission/"><img alt="Star" src="https://img.shields.io/github/stars/Adithya-13/MadeSubmsission"></a>
-  <a href="https://github.com/Adithya-13/MadeSubmsission/"><img alt="Circle CI" src="https://circleci.com/gh/Adithya-13/MadeSubmsission.svg?style=shield"></a>
 </p>
 
 <p align="center">
