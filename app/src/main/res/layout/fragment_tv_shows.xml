@@ -26,7 +26,7 @@
         fab:menu_colorNormal="@color/colorAccent"
         fab:menu_colorPressed="@color/colorAccentPressed"
         fab:menu_colorRipple="@color/colorAccentPressed"
-        fab:menu_fab_label="Sort Movies By"
+        fab:menu_fab_label="Sort Tv Shows By"
         fab:menu_fab_size="normal"
         fab:menu_icon="@drawable/ic_sort"
         fab:menu_labels_colorNormal="@color/colorAccent"
