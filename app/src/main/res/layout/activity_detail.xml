@@ -7,11 +7,6 @@
     android:background="@color/secondaryColor"
     tools:context=".detail.DetailActivity">
 
-    <!--Alasan NestedScrollView tidak
-    dijadikan Parent karena ingin membuat
-    tombol share agar Positioned dibawah layout
-    Sehingga tidak mengikuti layout NestedScrollView-->
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"

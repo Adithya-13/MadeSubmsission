@@ -4,7 +4,6 @@
     <string name="tvshows">Tv Shows</string>
     <string name="message_undo">Batalkan menghapus item sebelumnya?</string>
     <string name="message_ok">OK</string>
-    <string name="notfound">notFound</string>
     <string name="title_favorite">Favorite</string>
     <string name="no_data">NO DATA!</string>
 </resources>

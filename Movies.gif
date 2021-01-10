@@ -29,7 +29,7 @@ This project is made to fulfill a Submission in Dicoding course.
 
 In this project, I learned many things, such as Clean architecture, Design Pattern, Networking with Retrofit, Reactive Programming with Coroutines Flow, Dependency Injection with Koin, Local Database with Room Persistence, Modularization, and Dynamic Feature.
 
-For the 3rd Party Library i used in this project, you can look [here](#dependencies), and for the Tech Stack, i used the MVVM Architecture Pattern, Dependency Injection (DI) with Koin, and so many things that you can see at [here](#tech_stack).
+For the 3rd Party Library i used in this project, you can look [here](#dependencies), and for the Tech Stack, i used the MVVM Architecture Pattern, Dependency Injection (DI) with Koin, and so many things that you can see at [here](#Installation).
 
 I Use the [TheMovieDatabase](https://www.themoviedb.org/) for the data source. first thing first, you have to get the API Key from [TheMovieDatabase](https://www.themoviedb.org/), then, follow the instruction [here](#installation).
 
@@ -66,7 +66,7 @@ you can get API_KEY from [TheMovieDb](https://developers.themoviedb.org/3)
 
 |All Movies|All Tv Shows|Detail Movies|Detail Tv Shows|
 |--|--|--|--|
-|![](assets/Movies.gif?raw=true)|![](assets/tv_shows.gif?raw=true)|![](assets/detail_movies.gif?raw=true)|![](assets/detail_tv_shows.gif?raw=true)|
+|![](assets/movies.gif?raw=true)|![](assets/tv_shows.gif?raw=true)|![](assets/detail_movies.gif?raw=true)|![](assets/detail_tv_shows.gif?raw=true)|
 
 |Search Movies|Search Tv Shows|Favorite Movies|Favorite Tv Shows|
 |--|--|--|--|

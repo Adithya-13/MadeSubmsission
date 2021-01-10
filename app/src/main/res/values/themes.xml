@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:background">@color/secondaryColor</item>
     </style>
 
     <style name="SplashScreen" parent="Theme.MadeSubmission">
