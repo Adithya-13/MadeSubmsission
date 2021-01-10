@@ -24,16 +24,16 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteMoviesFragment : Fragment(), View.OnClickListener {
 
-    private val binding get() = _fragmentFavoriteMoviesBinding!!
     private var _fragmentFavoriteMoviesBinding: FragmentFavoriteMoviesBinding? = null
+    private val binding get() = _fragmentFavoriteMoviesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _fragmentFavoriteMoviesBinding =
             FragmentFavoriteMoviesBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     private lateinit var moviesAdapter: MoviesAdapter
@@ -43,17 +43,17 @@ class FavoriteMoviesFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        itemTouchHelper.attachToRecyclerView(binding.rvFavoriteMovies)
+        itemTouchHelper.attachToRecyclerView(binding?.rvFavoriteMovies)
 
         moviesAdapter = MoviesAdapter()
 
         setDataState(DataState.LOADING)
         setList(sort)
 
-        with(binding.rvFavoriteMovies) {
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-            adapter = moviesAdapter
+        with(binding?.rvFavoriteMovies) {
+            this?.layoutManager = LinearLayoutManager(context)
+            this?.setHasFixedSize(true)
+            this?.adapter = moviesAdapter
         }
 
         moviesAdapter.onItemClick = { selectedData ->
@@ -65,23 +65,23 @@ class FavoriteMoviesFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view) {
-            binding.random -> {
-                binding.menu.close(true)
+            binding?.random -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.RANDOM
                 setList(sort)
             }
-            binding.newest -> {
-                binding.menu.close(true)
+            binding?.newest -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.NEWEST
                 setList(sort)
             }
-            binding.popularity -> {
-                binding.menu.close(true)
+            binding?.popularity -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.POPULARITY
                 setList(sort)
             }
-            binding.vote -> {
-                binding.menu.close(true)
+            binding?.vote -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.VOTE
                 setList(sort)
             }
@@ -122,26 +122,26 @@ class FavoriteMoviesFragment : Fragment(), View.OnClickListener {
     private fun setDataState(state: DataState) {
         when (state) {
             DataState.ERROR -> {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.VISIBLE
-                binding.notFoundText.visibility = View.VISIBLE
+                binding?.progressBar?.visibility = View.GONE
+                binding?.notFound?.visibility = View.VISIBLE
+                binding?.notFoundText?.visibility = View.VISIBLE
             }
             DataState.LOADING -> {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                binding?.progressBar?.visibility = View.VISIBLE
+                binding?.notFound?.visibility = View.GONE
+                binding?.notFoundText?.visibility = View.GONE
             }
             DataState.SUCCESS -> {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                binding?.progressBar?.visibility = View.GONE
+                binding?.notFound?.visibility = View.GONE
+                binding?.notFoundText?.visibility = View.GONE
             }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding.rvFavoriteMovies.adapter = null
+        binding?.rvFavoriteMovies?.adapter = null
         _fragmentFavoriteMoviesBinding = null
     }
 }

@@ -29,18 +29,18 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class TvShowsFragment : Fragment(), View.OnClickListener {
 
     private var fragmentTvShowsBinding: FragmentTvShowsBinding? = null
-    private val binding get() = fragmentTvShowsBinding!!
+    private val binding get() = fragmentTvShowsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         fragmentTvShowsBinding = FragmentTvShowsBinding.inflate(inflater, container, false)
         val toolbar: Toolbar = activity?.findViewById<View>(R.id.toolbar) as Toolbar
         (activity as AppCompatActivity?)?.setSupportActionBar(toolbar)
         setHasOptionsMenu(true)
         searchView = (activity as HomeActivity).findViewById(R.id.search_view)
-        return binding.root
+        return binding?.root
     }
 
     private val viewModel: TvShowsViewModel by viewModel()
@@ -57,10 +57,10 @@ class TvShowsFragment : Fragment(), View.OnClickListener {
         observeSearchQuery()
         setSearchList()
 
-        with(binding.rvTvShows) {
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-            adapter = tvShowsAdapter
+        with(binding?.rvTvShows) {
+            this?.layoutManager = LinearLayoutManager(context)
+            this?.setHasFixedSize(true)
+            this?.adapter = tvShowsAdapter
         }
 
         tvShowsAdapter.onItemClick = { selectedData ->
@@ -72,23 +72,23 @@ class TvShowsFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(view: View?) {
         when (view) {
-            binding.random -> {
-                binding.menu.close(true)
+            binding?.random -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.RANDOM
                 setList(sort)
             }
-            binding.newest -> {
-                binding.menu.close(true)
+            binding?.newest -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.NEWEST
                 setList(sort)
             }
-            binding.popularity -> {
-                binding.menu.close(true)
+            binding?.popularity -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.POPULARITY
                 setList(sort)
             }
-            binding.vote -> {
-                binding.menu.close(true)
+            binding?.vote -> {
+                binding?.menu?.close(true)
                 sort = SortUtils.VOTE
                 setList(sort)
             }
@@ -159,19 +159,19 @@ class TvShowsFragment : Fragment(), View.OnClickListener {
     private fun setDataState(state: DataState) {
         when (state) {
             DataState.ERROR -> {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.VISIBLE
-                binding.notFoundText.visibility = View.VISIBLE
+                binding?.progressBar?.visibility = View.GONE
+                binding?.notFound?.visibility = View.VISIBLE
+                binding?.notFoundText?.visibility = View.VISIBLE
             }
             DataState.LOADING -> {
-                binding.progressBar.visibility = View.VISIBLE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                binding?.progressBar?.visibility = View.VISIBLE
+                binding?.notFound?.visibility = View.GONE
+                binding?.notFoundText?.visibility = View.GONE
             }
             DataState.SUCCESS -> {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                binding?.progressBar?.visibility = View.GONE
+                binding?.notFound?.visibility = View.GONE
+                binding?.notFoundText?.visibility = View.GONE
             }
         }
     }
@@ -180,7 +180,7 @@ class TvShowsFragment : Fragment(), View.OnClickListener {
         super.onDestroyView()
         searchView.setOnQueryTextListener(null)
         searchView.setOnSearchViewListener(null)
-        binding.rvTvShows.adapter = null
+        binding?.rvTvShows?.adapter = null
         fragmentTvShowsBinding = null
     }
 }
