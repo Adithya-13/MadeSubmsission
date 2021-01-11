@@ -29,11 +29,22 @@
             android:src="@drawable/poster_crimes"
             app:riv_corner_radius="20dp" />
 
-        <ProgressBar
+        <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/progress_bar"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:shimmer_auto_start="true">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/poster_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/poster"
+                android:scaleType="centerCrop"
+                android:src="#DDDDDD"
+                app:riv_corner_radius="20dp" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <ImageView
             android:layout_width="match_parent"
