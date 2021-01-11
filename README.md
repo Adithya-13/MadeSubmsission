@@ -57,13 +57,11 @@ and Paste it into DownGit, after that click Download Button, and voila, you can 
 
 |All Movies|All Tv Shows|Detail Movies|Detail Tv Shows|
 |--|--|--|--|
-|<a href="https://iphoto.net/i/lSiea"><img src="https://m.iphoto.net/lSiea.gif" alt="All Movies"></a>|<a href="https://iphoto.net/i/lSqeh"><img src="https://m.iphoto.net/lSqeh.gif" alt="All Tv Shows"></a>|<a href="https://iphoto.net/i/lS7cV"><img src="https://m.iphoto.net/lS7cV.gif" alt="Detail Movies"></a>
-|<a href="https://iphoto.net/i/lSELZ"><img src="https://m.iphoto.net/lSELZ.gif" alt="Detail Tv Shows"></a>|
+|![](assets/movies.gif?raw=true)|![](assets/tv_shows.gif?raw=true)|![](assets/detail_movies.gif?raw=true)|![](assets/detail_tv_shows.gif?raw=true)|
 
 |Search Movies|Search Tv Shows|Favorite Movies|Favorite Tv Shows|
 |--|--|--|--|
-|<a href="https://iphoto.net/i/lS5yK"><img src="https://m.iphoto.net/lS5yK.gif" alt="Search Movies"></a>|<a href="https://iphoto.net/i/lS156"><img src="https://m.iphoto.net/lS156.gif" alt="Search Tv Shows"></a>
-|<a href="https://iphoto.net/i/lS8ux"><img src="https://m.iphoto.net/lS8ux.gif" alt="Favorite Movies"></a>|<a href="https://iphoto.net/i/lSFfA"><img src="https://m.iphoto.net/lSFfA.gif" alt="Favorite Tv Shows"></a>|
+|![](assets/search_movies.gif?raw=true)|![](assets/search_tv_shows.gif?raw=true)|![](assets/favorite_movies.gif?raw=true)|![](assets/favorite_tv_shows.gif?raw=true)|
 
 ## Features
 - Get All the Movies and Tv Shows
