@@ -18,6 +18,7 @@ dependencies {
     implementation "com.makeramen:roundedimageview:$riv_version"
     implementation "com.miguelcatalan:materialsearchview:$material_search_view_version"
     implementation "com.airbnb.android:lottie:$lottie_version"
+    implementation "com.flaviofaria:kenburnsview:$ken_burns_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
@@ -28,5 +29,8 @@ dependencies {
 
     //Play Core
     implementation "com.google.android.play:core:1.9.0"
+
+    //Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
 
 }

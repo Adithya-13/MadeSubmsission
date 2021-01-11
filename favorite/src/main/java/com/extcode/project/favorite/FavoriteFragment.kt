@@ -13,14 +13,14 @@ import org.koin.core.context.loadKoinModules
 class FavoriteFragment : Fragment() {
 
     private var fragmentFavoriteBinding: FragmentFavoriteBinding? = null
-    private val binding get() = fragmentFavoriteBinding!!
+    private val binding get() = fragmentFavoriteBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         fragmentFavoriteBinding = FragmentFavoriteBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,13 +29,14 @@ class FavoriteFragment : Fragment() {
         loadKoinModules(favoriteModule)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(context as Context, childFragmentManager)
-        binding.viewPager.adapter = sectionsPagerAdapter
-        binding.tab.setupWithViewPager(binding.viewPager)
+        binding?.viewPager?.adapter = sectionsPagerAdapter
+        binding?.tab?.setupWithViewPager(binding?.viewPager)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         fragmentFavoriteBinding = null
+        binding?.viewPager?.adapter = null
     }
 
 }

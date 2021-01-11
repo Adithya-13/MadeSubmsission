@@ -18,6 +18,7 @@ import com.extcode.project.madesubmission.databinding.FragmentMoviesBinding
 import com.extcode.project.madesubmission.detail.DetailActivity
 import com.extcode.project.madesubmission.home.HomeActivity
 import com.extcode.project.madesubmission.home.SearchViewModel
+import com.extcode.project.madesubmission.utils.DataState
 import com.miguelcatalan.materialsearchview.MaterialSearchView
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -26,21 +27,21 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 @ExperimentalCoroutinesApi
 @FlowPreview
-class MoviesFragment : Fragment() {
+class MoviesFragment : Fragment(), View.OnClickListener {
 
     private var _fragmentMoviesBinding: FragmentMoviesBinding? = null
-    private val binding get() = _fragmentMoviesBinding!!
+    private val binding get() = _fragmentMoviesBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _fragmentMoviesBinding = FragmentMoviesBinding.inflate(inflater, container, false)
         val toolbar: Toolbar = activity?.findViewById<View>(R.id.toolbar) as Toolbar
         (activity as AppCompatActivity?)?.setSupportActionBar(toolbar)
         setHasOptionsMenu(true)
         searchView = (activity as HomeActivity).findViewById(R.id.search_view)
-        return binding.root
+        return binding?.root
     }
 
     private val viewModel: MoviesViewModel by viewModel()
@@ -57,10 +58,10 @@ class MoviesFragment : Fragment() {
         observeSearchQuery()
         setSearchList()
 
-        with(binding.rvMovies) {
-            layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
-            adapter = moviesAdapter
+        with(binding?.rvMovies) {
+            this?.layoutManager = LinearLayoutManager(context)
+            this?.setHasFixedSize(true)
+            this?.adapter = moviesAdapter
         }
 
         moviesAdapter.onItemClick = { selectedData ->
@@ -69,33 +70,42 @@ class MoviesFragment : Fragment() {
             startActivity(intent)
         }
 
-        binding.random.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.RANDOM
-            setList(sort)
-        }
-        binding.newest.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.NEWEST
-            setList(sort)
-        }
-        binding.popularity.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.POPULARITY
-            setList(sort)
-        }
-        binding.vote.setOnClickListener {
-            binding.menu.close(true)
-            sort = SortUtils.VOTE
-            setList(sort)
+        binding?.random?.setOnClickListener(this)
+        binding?.newest?.setOnClickListener(this)
+        binding?.vote?.setOnClickListener(this)
+        binding?.popularity?.setOnClickListener(this)
+    }
+
+    override fun onClick(view: View?) {
+        when (view) {
+            binding?.random -> {
+                binding?.menu?.close(true)
+                sort = SortUtils.RANDOM
+                setList(sort)
+            }
+            binding?.newest -> {
+                binding?.menu?.close(true)
+                sort = SortUtils.NEWEST
+                setList(sort)
+            }
+            binding?.popularity -> {
+                binding?.menu?.close(true)
+                sort = SortUtils.POPULARITY
+                setList(sort)
+            }
+            binding?.vote -> {
+                binding?.menu?.close(true)
+                sort = SortUtils.VOTE
+                setList(sort)
+            }
         }
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_menu, menu)
-        val item = menu.findItem(R.id.action_search)
-        searchView.setMenuItem(item)
+        val menuItem = menu.findItem(R.id.action_search)
+        searchView.setMenuItem(menuItem)
     }
 
     private fun setList(sort: String) {
@@ -105,21 +115,13 @@ class MoviesFragment : Fragment() {
     private val moviesObserver = Observer<Resource<List<Movie>>> { movies ->
         if (movies != null) {
             when (movies) {
-                is Resource.Loading -> {
-                    binding.progressBar.visibility = View.VISIBLE
-                    binding.notFound.visibility = View.GONE
-                    binding.notFoundText.visibility = View.GONE
-                }
+                is Resource.Loading -> setDataState(DataState.LOADING)
                 is Resource.Success -> {
-                    binding.progressBar.visibility = View.GONE
-                    binding.notFound.visibility = View.GONE
-                    binding.notFoundText.visibility = View.GONE
+                    setDataState(DataState.SUCCESS)
                     moviesAdapter.setData(movies.data)
                 }
                 is Resource.Error -> {
-                    binding.progressBar.visibility = View.GONE
-                    binding.notFound.visibility = View.VISIBLE
-                    binding.notFoundText.visibility = View.VISIBLE
+                    setDataState(DataState.ERROR)
                     Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -133,46 +135,58 @@ class MoviesFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let {
-                    searchViewModel.setSearchQuery(it)
-                }
+                newText?.let { searchViewModel.setSearchQuery(it) }
                 return true
             }
         })
     }
 
     private fun setSearchList() {
-        searchViewModel.movieResult.observe(viewLifecycleOwner, { movies ->
-            if (movies.isNullOrEmpty()){
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.VISIBLE
-                binding.notFoundText.visibility = View.VISIBLE
+        searchViewModel.movieResult.observe(this, { movies ->
+            if (movies.isNullOrEmpty()) {
+                setDataState(DataState.ERROR)
             } else {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                setDataState(DataState.SUCCESS)
             }
             moviesAdapter.setData(movies)
         })
-        searchView.setOnSearchViewListener(object : MaterialSearchView.SearchViewListener{
+        searchView.setOnSearchViewListener(object : MaterialSearchView.SearchViewListener {
             override fun onSearchViewShown() {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                setDataState(DataState.SUCCESS)
             }
 
             override fun onSearchViewClosed() {
-                binding.progressBar.visibility = View.GONE
-                binding.notFound.visibility = View.GONE
-                binding.notFoundText.visibility = View.GONE
+                setDataState(DataState.SUCCESS)
                 setList(sort)
             }
         })
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _fragmentMoviesBinding = null
+    private fun setDataState(state: DataState) {
+        when (state) {
+            DataState.ERROR -> {
+                binding?.progressBar?.visibility = View.GONE
+                binding?.notFound?.visibility = View.VISIBLE
+                binding?.notFoundText?.visibility = View.VISIBLE
+            }
+            DataState.LOADING -> {
+                binding?.progressBar?.visibility = View.VISIBLE
+                binding?.notFound?.visibility = View.GONE
+                binding?.notFoundText?.visibility = View.GONE
+            }
+            DataState.SUCCESS -> {
+                binding?.progressBar?.visibility = View.GONE
+                binding?.notFound?.visibility = View.GONE
+                binding?.notFoundText?.visibility = View.GONE
+            }
+        }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        searchView.setOnQueryTextListener(null)
+        searchView.setOnSearchViewListener(null)
+        binding?.rvMovies?.adapter = null
+        _fragmentMoviesBinding = null
+    }
 }

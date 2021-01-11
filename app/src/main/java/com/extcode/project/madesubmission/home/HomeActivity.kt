@@ -1,7 +1,6 @@
 package com.extcode.project.madesubmission.home
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -34,22 +33,16 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private val className: String
-        get() = "com.extcode.project.favorite.FavoriteFragment"
-
     private fun moveToFavoriteFragment() {
-        val fragment = instantiateFragment(className)
-        if (fragment != null) {
-            navigationChange(fragment)
-        }
-    }
+        val fragment = Class.forName("com.extcode.project.favorite.FavoriteFragment").newInstance()
 
-    private fun instantiateFragment(className: String): Fragment? {
-        return try {
-            Class.forName(className).newInstance() as Fragment
-        } catch (e: Exception) {
-            Toast.makeText(this, "Module not found", Toast.LENGTH_SHORT).show()
-            null
+        if (fragment is Fragment) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frameContainer, fragment, "dynamic_fragment")
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .addToBackStack("dynamic_fragment")
+                .commit()
         }
     }
 
