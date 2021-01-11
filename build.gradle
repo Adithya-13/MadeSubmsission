@@ -21,6 +21,7 @@ buildscript {
     ext.material_search_view_version = "1.4.0"
     ext.ken_burns_version = "1.0.7"
     ext.lottie_version = "3.6.0"
+    ext.shimmer_version = "0.5.0"
 
     ext.room_version = "2.2.6"
     ext.sqlcipher_version = "4.4.0"

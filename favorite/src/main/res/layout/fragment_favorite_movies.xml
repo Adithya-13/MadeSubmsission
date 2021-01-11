@@ -46,6 +46,7 @@
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
+        android:elevation="10dp"
         fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton
@@ -94,14 +95,35 @@
 
     </com.github.clans.fab.FloatingActionMenu>
 
-    <ProgressBar
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_auto_start="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_card_list_placeholder" />
+
+                <include layout="@layout/item_card_list_placeholder" />
+
+                <include layout="@layout/item_card_list_placeholder" />
+
+                <include layout="@layout/item_card_list_placeholder" />
+            </LinearLayout>
+        </ScrollView>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/not_found"

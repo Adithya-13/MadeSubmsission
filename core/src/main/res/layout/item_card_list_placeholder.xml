@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemCard"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:layout_marginStart="36dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="36dp"
+    android:layout_marginBottom="16dp"
+    android:clickable="true"
+    android:elevation="4dp"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="20dp"
+    app:cardMaxElevation="4dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/poster"
+            android:scaleType="centerCrop"
+            android:src="#DDDDDD"
+            app:riv_corner_radius="20dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="20sp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:src="#7F000000"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/date"
+                android:layout_width="80dp"
+                android:layout_height="15sp"
+                android:layout_marginTop="16dp"
+                android:src="#7F000000"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/title"
+                app:layout_constraintStart_toStartOf="@+id/title"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/language"
+                android:layout_width="60dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
+                android:src="#7F000000"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/date"
+                app:layout_constraintStart_toStartOf="@+id/date"
+                app:layout_constraintTop_toBottomOf="@+id/date" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/popularity"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="#7F000000"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/userScore"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/userScore"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="#7F000000"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="10dp"
+                app:riv_oval="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>

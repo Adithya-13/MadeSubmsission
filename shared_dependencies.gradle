@@ -19,6 +19,7 @@ dependencies {
     implementation "com.miguelcatalan:materialsearchview:$material_search_view_version"
     implementation "com.airbnb.android:lottie:$lottie_version"
     implementation "com.flaviofaria:kenburnsview:$ken_burns_version"
+    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
