@@ -1,7 +1,7 @@
 ##---------------Begin: proguard configuration for SQLCipher  ----------
+#noinspection ShrinkerUnresolvedReference
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }
-
 
 ##---------------Begin: proguard configuration for Gson ----------
 # Gson uses generic type information stored in a class file when working with fields. Proguard
@@ -16,6 +16,7 @@
 #-keep class com.google.gson.stream.** { *; }
 
 # Application classes that will be serialized/deserialized over Gson
+#noinspection ShrinkerUnresolvedReference
 -keep class com.google.gson.examples.android.model.** { <fields>; }
 
 # Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
@@ -29,7 +30,6 @@
 -keepclassmembers,allowobfuscation class * {
 @com.google.gson.annotations.SerializedName <fields>;
 }
-
 
 ##---------------Begin: proguard configuration for Retrofit ----------
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
@@ -55,7 +55,7 @@
 
 # Top-level functions that can only be used by Kotlin.
 -dontwarn retrofit2.KotlinExtensions
--dontwarn retrofit2.KotlinExtensions$*
+-dontwarn retrofit2.KotlinExtensions*
 
 # With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
 # and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
