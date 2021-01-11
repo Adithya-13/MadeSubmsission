@@ -5,8 +5,7 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.extcode.project.favorite.movies.FavoriteMoviesFragment
-import com.extcode.project.favorite.tvshows.FavoriteTvShowsFragment
+import com.extcode.project.favorite.favorite.FavoriteMoviesFragment
 
 class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
@@ -18,8 +17,8 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     )
 
     private val fragment: List<Fragment> = listOf(
-        FavoriteMoviesFragment(),
-        FavoriteTvShowsFragment()
+        FavoriteMoviesFragment(isMovie = true),
+        FavoriteMoviesFragment(isMovie = false),
     )
 
     override fun getPageTitle(position: Int): CharSequence {

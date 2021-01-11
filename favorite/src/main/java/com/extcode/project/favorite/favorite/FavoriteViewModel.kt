@@ -1,4 +1,4 @@
-package com.extcode.project.favorite
+package com.extcode.project.favorite.favorite
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
