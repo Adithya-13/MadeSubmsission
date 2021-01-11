@@ -17,8 +17,8 @@ import com.extcode.project.favorite.R
 import com.extcode.project.favorite.databinding.FragmentFavoriteMoviesBinding
 import com.extcode.project.madesubmission.detail.DetailActivity
 import com.extcode.project.madesubmission.utils.DataState
-import com.extcode.project.utils.ItemSwipeHelper
-import com.extcode.project.utils.OnItemSwiped
+import com.extcode.project.favorite.utils.ItemSwipeHelper
+import com.extcode.project.favorite.utils.OnItemSwiped
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -61,6 +61,11 @@ class FavoriteMoviesFragment : Fragment(), View.OnClickListener {
             intent.putExtra(DetailActivity.EXTRA_MOVIE, selectedData)
             startActivity(intent)
         }
+
+        binding?.random?.setOnClickListener(this)
+        binding?.newest?.setOnClickListener(this)
+        binding?.vote?.setOnClickListener(this)
+        binding?.popularity?.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {

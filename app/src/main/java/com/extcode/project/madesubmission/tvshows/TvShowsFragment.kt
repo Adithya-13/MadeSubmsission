@@ -68,6 +68,11 @@ class TvShowsFragment : Fragment(), View.OnClickListener {
             intent.putExtra(DetailActivity.EXTRA_MOVIE, selectedData)
             startActivity(intent)
         }
+        
+        binding?.random?.setOnClickListener(this)
+        binding?.newest?.setOnClickListener(this)
+        binding?.vote?.setOnClickListener(this)
+        binding?.popularity?.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {

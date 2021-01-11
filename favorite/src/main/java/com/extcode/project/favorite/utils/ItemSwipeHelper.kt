@@ -1,4 +1,4 @@
-package com.extcode.project.utils
+package com.extcode.project.favorite.utils
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
