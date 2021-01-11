@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiService: ApiService) {
 
-    private val apiKey = "43412c891d14cd0d547b4516863833ab" //REPLACE YOUR API KEY HERE!!
+    private val apiKey = "43412c891d14cd0d547b4516863833ab"
 
     suspend fun getMovies(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {

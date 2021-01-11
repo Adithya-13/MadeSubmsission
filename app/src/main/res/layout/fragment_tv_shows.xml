@@ -114,7 +114,7 @@
         app:lottie_autoPlay="true"
         android:scaleType="centerCrop"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/no_data" />
+        app:lottie_fileName="no_data.json"/>
 
     <TextView
         android:id="@+id/not_found_text"
