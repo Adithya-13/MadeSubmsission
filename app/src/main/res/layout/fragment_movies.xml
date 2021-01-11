@@ -17,6 +17,7 @@
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         fab:menu_animationDelayPerItem="50"
@@ -46,7 +47,6 @@
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
-        android:elevation="10dp"
         fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton

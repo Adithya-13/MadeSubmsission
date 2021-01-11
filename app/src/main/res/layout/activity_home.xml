@@ -60,9 +60,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/bottom_bar_color"
+        android:elevation="10dp"
         android:padding="8dp"
         app:bnc_mode="spread"
-        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -113,6 +113,5 @@
             app:layout_constraintTop_toTopOf="@id/bottomNavigationContainer" />
 
     </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

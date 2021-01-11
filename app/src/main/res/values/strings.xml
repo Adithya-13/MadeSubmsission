@@ -19,7 +19,6 @@
     <string name="subPoster">subPoster</string>
     <string name="icon">icon</string>
     <string name="favorite">favorite</string>
-    <string name="notfound">notFound</string>
     <string name="search">Search</string>
     <string name="no_data">NO DATA!</string>
 </resources>

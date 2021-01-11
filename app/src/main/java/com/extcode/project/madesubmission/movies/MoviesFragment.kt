@@ -24,7 +24,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
 @ExperimentalCoroutinesApi
 @FlowPreview
 class MoviesFragment : Fragment(), View.OnClickListener {
@@ -100,7 +99,6 @@ class MoviesFragment : Fragment(), View.OnClickListener {
             }
         }
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_menu, menu)

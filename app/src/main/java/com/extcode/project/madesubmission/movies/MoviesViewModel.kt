@@ -8,7 +8,6 @@ import com.extcode.project.core.domain.model.Movie
 import com.extcode.project.core.domain.usecase.MovieAppUseCase
 
 class MoviesViewModel(private val movieAppUseCase: MovieAppUseCase) : ViewModel() {
-    fun getMovies(sort: String): LiveData<Resource<List<Movie>>> {
-        return movieAppUseCase.getAllMovies(sort).asLiveData()
-    }
+    fun getMovies(sort: String): LiveData<Resource<List<Movie>>> =
+        movieAppUseCase.getAllMovies(sort).asLiveData()
 }

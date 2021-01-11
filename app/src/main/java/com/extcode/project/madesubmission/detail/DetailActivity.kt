@@ -83,6 +83,11 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        binding.posterTopBar.pause()
+    }
+
     private fun share() {
         val mimeType = "text/plain"
         ShareCompat.IntentBuilder.from(this).apply {

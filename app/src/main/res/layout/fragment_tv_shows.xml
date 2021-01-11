@@ -17,6 +17,7 @@
         android:id="@+id/menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         fab:menu_animationDelayPerItem="50"
@@ -46,7 +47,6 @@
         fab:menu_shadowRadius="4dp"
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
-        android:elevation="10dp"
         fab:menu_showShadow="true">
 
         <com.github.clans.fab.FloatingActionButton
@@ -129,22 +129,22 @@
         android:id="@+id/not_found"
         android:layout_width="240dp"
         android:layout_height="240dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        android:scaleType="centerCrop"
-        app:lottie_loop="true"
-        app:lottie_fileName="no_data.json"/>
+        app:lottie_fileName="no_data.json"
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/not_found_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_data"
-        android:textSize="20sp"
         android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/not_found"
         app:layout_constraintStart_toStartOf="@+id/not_found"
         app:layout_constraintTop_toBottomOf="@+id/not_found" />
