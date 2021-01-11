@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   android: circleci/android@0.2.1
+  codecov: codecov/codecov@1.0.2
 
 jobs:
   build:
@@ -24,6 +25,9 @@ jobs:
       - run:
           name: Run Build
           command: ./gradlew build
+      - codecov/upload:
+          file: './coverage/clover.xml'
+          token: e128fbb1-a931-4afe-a70e-43a438c2ad6c
       - store_artifacts:
           path: app/build/reports
           destination: reports
