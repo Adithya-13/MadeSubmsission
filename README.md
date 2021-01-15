@@ -1,8 +1,8 @@
 <h1 align="center">
-  Submission Dicoding MADE : Movie App
+  Submission 2 Dicoding MADE : Movie App
 </h1>
 <p align="center">
-  Submission MADE (Menjadi Android Developer Expert) in Dicoding Course.
+  Submission 2 MADE (Menjadi Android Developer Expert) in Dicoding Course.
 </p>
 <p align="center">
   <a href="http://developer.android.com/index.html"><img alt="Platform" src="https://img.shields.io/badge/platform-Android-green.svg"></a>
@@ -52,6 +52,27 @@ You can use the [DownGit](https://downgit.github.io/) for download Submission1 s
 ```
 
 and Paste it into DownGit, after that click Download Button, and voila, you can clone the code.
+
+
+Change the API_KEY [here](https://github.com/Adithya-13/MadeSubmsission/blob/submission2/core/src/main/java/com/extcode/project/core/data/source/remote/RemoteDataSource.kt)
+
+```
+class RemoteDataSource(private val apiService: ApiService) {
+
+    private val apiKey = "" //REPLACE YOUR API KEY HERE!!
+
+    suspend fun getMovies(): Flow<ApiResponse<List<MovieResponse>>> {
+       ....
+    }
+
+    suspend fun getTvShows(): Flow<ApiResponse<List<TvShowResponse>>> {
+       ....
+    }
+
+}
+```
+
+you can get API_KEY from [TheMovieDb](https://developers.themoviedb.org/3)
 
 ## Demo
 
