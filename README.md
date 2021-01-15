@@ -25,6 +25,19 @@
 
 ## Introduction
 
+This project is made to fulfill a Submission in Dicoding course and the last course in Android Learning path.
+
+As you can see, this repos have 4 Branch, master, circle-ci-project-setup, submission1, submission2, You can see at Branch submission1 if you want to look at the code, and clone it with [DownGit](https://downgit.github.io/), and the branch master & submission2 is exactly same, because i merged it into branch master from branch submission2, just clone or download it if you want to see the code, thanks.
+
+In this project, I learned many things, such as Clean architecture, Design Pattern, Networking with Retrofit, Reactive Programming with Coroutines Flow, Dependency Injection with Koin, Local Database with Room Persistence, and many things.
+
+For the 3rd Party Library i used in this project, you can look [here](#dependencies), and for the Tech Stack, i used the MVVM Architecture Pattern, Dependency Injection (DI) with Koin, and so many things that you can see at [here](#tech_stack).
+
+I Use the [TheMovieDatabase](https://www.themoviedb.org/) for the data source. first thing first, you have to get the API Key from [TheMovieDatabase](https://www.themoviedb.org/), then, follow the instruction [here](#installation).
+
+I Hope this Project will help someone, if you feel helped with this project, you can give stars to support me, thank you very much :)
+
+
 ## Installation
 
 Clone or Download and Open it into Android Studio
